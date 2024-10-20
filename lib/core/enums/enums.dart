@@ -52,5 +52,10 @@ Map<String, String> objetivoStringMap = {
   'perderPeso': 'Perder Peso',
 };
 
+Map<String, String> objetivoTranslateMap = {
+  'weight_gain': 'ganharPeso',
+  'weight_loss': 'perderPeso',
+};
+
 const String profileKey = 'profile';
 const String resultKey = 'result';

@@ -13,7 +13,7 @@ class ResultPage extends GetView<ResultController> {
     return Scaffold(
       body: controller.obx(
         (state) => Padding(
-          padding: const EdgeInsets.all(64),
+          padding: const EdgeInsets.all(32),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

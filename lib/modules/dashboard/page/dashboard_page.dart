@@ -1,3 +1,4 @@
+import 'package:calorias_diaria/modules/articules/page/articles_page.dart';
 import 'package:calorias_diaria/modules/dashboard/controller/dashboard_controller.dart';
 import 'package:calorias_diaria/modules/profile/page/profile_page.dart';
 import 'package:calorias_diaria/modules/result/page/result_page.dart';
@@ -13,12 +14,10 @@ class DashboardPage extends GetView<DashboardController> {
       () => Scaffold(
         body: IndexedStack(
           index: controller.selectedIndex,
-          children: [
-            const ResultPage(),
-            Container(
-              color: Colors.green,
-            ),
-            const ProfilePage(),
+          children: const [
+            ResultPage(),
+            ArticlesPage(),
+            ProfilePage(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(

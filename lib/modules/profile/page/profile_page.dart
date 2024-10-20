@@ -80,6 +80,11 @@ class ProfilePage extends GetView<ProfileController> {
                   label: 'SALVAR',
                   onPressed: controller.saveProfile,
                 ),
+                const SizedBox(height: 20),
+                TextButton(
+                  onPressed: controller.clearProfile,
+                  child: const Text('Apagar meus dados'),
+                ),
               ],
             ),
           ),

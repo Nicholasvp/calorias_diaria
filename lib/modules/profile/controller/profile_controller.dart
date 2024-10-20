@@ -1,6 +1,8 @@
 import 'package:calorias_diaria/core/enums/enums.dart';
 import 'package:calorias_diaria/core/models/profile_model.dart';
+import 'package:calorias_diaria/core/routes/routes.dart';
 import 'package:calorias_diaria/core/service/local_storage_service.dart';
+import 'package:calorias_diaria/modules/articules/controller/articles_controller.dart';
 import 'package:calorias_diaria/modules/result/controller/result_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -64,6 +66,33 @@ class ProfileController extends GetxController with StateMixin<ProfileModel> {
 
     final resultController = Get.find<ResultController>();
     resultController.calculateResult();
+
+    final articlesController = Get.find<ArticlesController>();
+    articlesController.getAll();
     await getProfile();
+  }
+
+  void clearProfile() async {
+    //abrir modal de confirmação
+    await Get.defaultDialog(
+      title: 'Atenção',
+      middleText: 'Deseja realmente limpar o perfil?',
+      actions: [
+        TextButton(
+          onPressed: () => Get.back(),
+          child: const Text('Cancelar'),
+        ),
+        TextButton(
+          onPressed: () async {
+            Get.back();
+            change(null, status: RxStatus.loading());
+            await localStorageService.removeData(profileKey);
+            await localStorageService.removeData(resultKey);
+            Get.offAllNamed(Routes.dashboard);
+          },
+          child: const Text('Limpar'),
+        ),
+      ],
+    );
   }
 }

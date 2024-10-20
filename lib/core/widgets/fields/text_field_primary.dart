@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TextFieldPrimary extends StatelessWidget {
   const TextFieldPrimary({
@@ -20,6 +21,7 @@ class TextFieldPrimary extends StatelessWidget {
     return TextFormField(
       controller: controller,
       initialValue: initialValue,
+      style: Get.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w500),
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(radius),

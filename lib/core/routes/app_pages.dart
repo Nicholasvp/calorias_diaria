@@ -1,4 +1,5 @@
 import 'package:calorias_diaria/core/routes/routes.dart';
+import 'package:calorias_diaria/modules/articules/binding/articles_binding.dart';
 import 'package:calorias_diaria/modules/dashboard/binding/dashboard_binding.dart';
 import 'package:calorias_diaria/modules/dashboard/page/dashboard_page.dart';
 import 'package:calorias_diaria/modules/profile/binding/profile_binding.dart';
@@ -15,6 +16,7 @@ class AppPages {
         DashboardBinding(),
         ProfileBinding(),
         ResultBinding(),
+        ArticlesBinding(),
       ],
       page: () => const DashboardPage(),
     ),
