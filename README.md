@@ -47,4 +47,4 @@ Para baixar o aplicativo, clique no link abaixo:
 
 ## Contato
 
-Para mais informações, entre em contato conosco pelo e-mail: nichoalsvpinheiro@gmail.com
+Para mais informações, entre em contato conosco pelo e-mail: nicholasvpinheiro@gmail.com
