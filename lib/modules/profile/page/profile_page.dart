@@ -18,67 +18,70 @@ class ProfilePage extends GetView<ProfileController> {
       body: controller.obx(
         (state) => Padding(
           padding: const EdgeInsets.all(32),
-          child: ListView(
-            children: [
-              TextFieldPrimary(
-                controller: controller.nameController,
-                label: 'Nome',
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  Flexible(
-                    child: TextFieldPrimary(
-                      controller: controller.weightController,
-                      label: 'Peso (em kg)',
+          child: Form(
+            key: controller.formKey,
+            child: ListView(
+              children: [
+                TextFieldPrimary(
+                  controller: controller.nameController,
+                  label: 'Nome',
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    Flexible(
+                      child: TextFieldPrimary(
+                        controller: controller.weightController,
+                        label: 'Peso (em kg)',
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 20),
-                  Flexible(
-                    child: TextFieldPrimary(
-                      controller: controller.heightController,
-                      label: 'Altura (em cm)',
+                    const SizedBox(width: 20),
+                    Flexible(
+                      child: TextFieldPrimary(
+                        controller: controller.heightController,
+                        label: 'Altura (em cm)',
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  Flexible(
-                    child: TextFieldPrimary(
-                      controller: controller.ageController,
-                      label: 'Idade',
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    Flexible(
+                      child: TextFieldPrimary(
+                        controller: controller.ageController,
+                        label: 'Idade',
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 20),
-                  Flexible(
-                    child: DropdownPrimary(
-                      label: 'Gênero',
-                      items: generoStringMap,
-                      controller: controller.generoController,
+                    const SizedBox(width: 20),
+                    Flexible(
+                      child: DropdownPrimary(
+                        label: 'Gênero',
+                        items: generoStringMap,
+                        controller: controller.generoController,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              DropdownPrimary(
-                label: 'Nivel de Atividade Física',
-                items: nivelAtividadeFisicaStringMap,
-                controller: controller.nivelAtividadeFisicaController,
-              ),
-              const SizedBox(height: 20),
-              DropdownPrimary(
-                label: 'Objetivo',
-                items: objetivoStringMap,
-                controller: controller.objetivoController,
-              ),
-              const SizedBox(height: 20),
-              ButtonPrimary(
-                label: 'SALVAR',
-                onPressed: controller.saveProfile,
-              ),
-            ],
+                  ],
+                ),
+                const SizedBox(height: 20),
+                DropdownPrimary(
+                  label: 'Nivel de Atividade Física',
+                  items: nivelAtividadeFisicaStringMap,
+                  controller: controller.nivelAtividadeFisicaController,
+                ),
+                const SizedBox(height: 20),
+                DropdownPrimary(
+                  label: 'Objetivo',
+                  items: objetivoStringMap,
+                  controller: controller.objetivoController,
+                ),
+                const SizedBox(height: 20),
+                ButtonPrimary(
+                  label: 'SALVAR',
+                  onPressed: controller.saveProfile,
+                ),
+              ],
+            ),
           ),
         ),
       ),

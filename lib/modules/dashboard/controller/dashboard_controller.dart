@@ -10,4 +10,8 @@ class DashboardController extends GetxController with StateMixin {
     selectedIndex = index;
     change(selectedIndex, status: RxStatus.success());
   }
+
+  void goToProfile() {
+    changeIndex(2);
+  }
 }

@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Calorias Diárias',
       theme: AppTheme.theme,
       initialBinding: AppBinding(),
       getPages: AppPages.pages,

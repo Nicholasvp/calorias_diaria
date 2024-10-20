@@ -1,12 +1,14 @@
 import 'package:calorias_diaria/core/enums/enums.dart';
 import 'package:calorias_diaria/core/models/profile_model.dart';
 import 'package:calorias_diaria/core/service/local_storage_service.dart';
+import 'package:calorias_diaria/modules/result/controller/result_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController with StateMixin<ProfileModel> {
   final localStorageService = Get.find<LocalStorageService>();
 
+  final formKey = GlobalKey<FormState>();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
   final TextEditingController heightController = TextEditingController();
@@ -43,6 +45,8 @@ class ProfileController extends GetxController with StateMixin<ProfileModel> {
   }
 
   void saveProfile() async {
+    if (!formKey.currentState!.validate()) return;
+
     change(null, status: RxStatus.loading());
     final profile = ProfileModel(
       name: nameController.text,
@@ -55,6 +59,11 @@ class ProfileController extends GetxController with StateMixin<ProfileModel> {
     );
     await Future.delayed(const Duration(seconds: 1));
     await localStorageService.saveData(profileKey, profile.toJson());
+
+    change(profile, status: RxStatus.loading());
+
+    final resultController = Get.find<ResultController>();
+    resultController.calculateResult();
     await getProfile();
   }
 }

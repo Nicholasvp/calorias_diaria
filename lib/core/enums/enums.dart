@@ -16,7 +16,7 @@ enum Objetivo {
   perderPeso,
 }
 
-Map<String, dynamic> generoMap = {
+Map<String, Genero> generoEnumMap = {
   'masculino': Genero.masculino,
   'femenino': Genero.femenino,
 };
@@ -26,7 +26,7 @@ Map<String, String> generoStringMap = {
   'femenino': 'Femenino',
 };
 
-Map<String, dynamic> nivelAtividadeFisicaMap = {
+Map<String, NivelAtividadeFisica> nivelAtividadeFisicaEnumMap = {
   'sedentario': NivelAtividadeFisica.sedentario,
   'leve': NivelAtividadeFisica.leve,
   'moderado': NivelAtividadeFisica.moderado,
@@ -42,7 +42,7 @@ Map<String, String> nivelAtividadeFisicaStringMap = {
   'muitoIntenso': 'Muito Intenso',
 };
 
-Map<String, dynamic> objetivoMap = {
+Map<String, Objetivo> objetivoEnumMap = {
   'ganharPeso': Objetivo.ganharPeso,
   'perderPeso': Objetivo.perderPeso,
 };

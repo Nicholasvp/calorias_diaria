@@ -7,11 +7,13 @@ class DropdownPrimary extends StatefulWidget {
     required this.items,
     required this.controller,
     this.radius = 10.0,
+    this.required = true,
   });
   final String label;
   final Map<String, String> items;
   final TextEditingController controller;
   final double radius;
+  final bool required;
 
   @override
   State<DropdownPrimary> createState() => _DropdownPrimaryState();
@@ -54,6 +56,12 @@ class _DropdownPrimaryState extends State<DropdownPrimary> {
           ),
         ),
       ),
+      validator: (value) {
+        if (widget.required && value == null) {
+          return 'Campo obrigatório';
+        }
+        return null;
+      },
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:calorias_diaria/core/routes/routes.dart';
 import 'package:calorias_diaria/modules/dashboard/binding/dashboard_binding.dart';
 import 'package:calorias_diaria/modules/dashboard/page/dashboard_page.dart';
 import 'package:calorias_diaria/modules/profile/binding/profile_binding.dart';
+import 'package:calorias_diaria/modules/result/binding/result_binding.dart';
 import 'package:get/get.dart';
 
 class AppPages {
@@ -10,7 +11,11 @@ class AppPages {
   static final pages = [
     GetPage(
       name: Routes.dashboard,
-      bindings: [DashboardBinding(), ProfileBinding()],
+      bindings: [
+        DashboardBinding(),
+        ProfileBinding(),
+        ResultBinding(),
+      ],
       page: () => const DashboardPage(),
     ),
   ];

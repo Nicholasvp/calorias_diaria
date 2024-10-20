@@ -1,5 +1,6 @@
 import 'package:calorias_diaria/modules/dashboard/controller/dashboard_controller.dart';
 import 'package:calorias_diaria/modules/profile/page/profile_page.dart';
+import 'package:calorias_diaria/modules/result/page/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,9 +14,7 @@ class DashboardPage extends GetView<DashboardController> {
         body: IndexedStack(
           index: controller.selectedIndex,
           children: [
-            Container(
-              color: Colors.red,
-            ),
+            const ResultPage(),
             Container(
               color: Colors.green,
             ),

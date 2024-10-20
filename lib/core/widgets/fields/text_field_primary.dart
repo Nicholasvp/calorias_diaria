@@ -7,11 +7,13 @@ class TextFieldPrimary extends StatelessWidget {
     required this.label,
     this.radius = 10,
     this.initialValue,
+    this.required = true,
   });
   final TextEditingController controller;
   final String? initialValue;
   final String label;
   final double radius;
+  final bool required;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,12 @@ class TextFieldPrimary extends StatelessWidget {
         ),
         labelText: label,
       ),
+      validator: (value) {
+        if (required && value!.isEmpty) {
+          return 'Campo obrigatório';
+        }
+        return null;
+      },
     );
   }
 }
