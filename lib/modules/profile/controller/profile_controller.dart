@@ -11,6 +11,9 @@ class ProfileController extends GetxController with StateMixin<ProfileModel> {
   final TextEditingController weightController = TextEditingController();
   final TextEditingController heightController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
+  final TextEditingController generoController = TextEditingController();
+  final TextEditingController nivelAtividadeFisicaController = TextEditingController();
+  final TextEditingController objetivoController = TextEditingController();
 
   @override
   void onReady() async {
@@ -27,6 +30,9 @@ class ProfileController extends GetxController with StateMixin<ProfileModel> {
       weightController.text = profile.weight > 0.0 ? profile.weight.toString() : '';
       heightController.text = profile.height > 0.0 ? profile.height.toString() : '';
       ageController.text = profile.age > 0 ? profile.age.toString() : '';
+      generoController.text = profile.genero;
+      nivelAtividadeFisicaController.text = profile.nivelAtividadeFisica;
+      objetivoController.text = profile.objetivo;
       change(profile, status: RxStatus.success());
     } else {
       final profile = ProfileModel.empty();
@@ -43,9 +49,9 @@ class ProfileController extends GetxController with StateMixin<ProfileModel> {
       weight: double.tryParse(weightController.text) ?? 0.0,
       height: double.tryParse(heightController.text) ?? 0.0,
       age: int.tryParse(ageController.text) ?? 0,
-      genero: '',
-      nivelAtividadeFisica: '',
-      objetivo: '',
+      genero: generoController.text,
+      nivelAtividadeFisica: nivelAtividadeFisicaController.text,
+      objetivo: objetivoController.text,
     );
     await Future.delayed(const Duration(seconds: 1));
     await localStorageService.saveData(profileKey, profile.toJson());
